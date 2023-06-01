@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+
+    <!--设置mybatis运行时行为-->
+    <settings>
+
+        <setting name="cacheEnabled" value="true"/>
+        <setting name="lazyLoadingEnabled" value="true"/>
+        <setting name="autoMappingBehavior" value="PARTIAL"/>
+        <setting name="autoMappingUnknownColumnBehavior" value="WARNING"/>
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+        <setting name="localCacheScope" value="SESSION"/>
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
+        <!-- <setting name="logImpl" value="NO_LOGGING"/>-->
+        <setting name="lazyLoadTriggerMethods" value="equals,clone,hashCode,toString"/>
+    </settings>
+
+    <!--设置别名-->
+    <typeAliases>
+
+        <!--给一个包下的所有类指定别名，默认为类名首字母小写-->
+        <package name="jmu.dpj.bmms.pojo"/>
+    </typeAliases>
+
+    <plugins>
+        <!--   <plugin interceptor="com.github.pagehelper.PageHelper">新的版本就不再实现这个接口了，转而实下面接口-->
+        <plugin interceptor="com.github.pagehelper.PageInterceptor">
+            <!--高版本中会自动识别mysql，如果配置会报错-->
+            <!--   <property name="dialect" value="mysql"/>-->
+
+            <!--reasonable：分页合理化参数，默认值为false。
+              当该参数设置为 true 时，pageNum<=0 时会查询第一页，
+              pageNum>pages（超过总数时），会查询最后一页。
+              默认false 时，直接根据参数进行查询。-->
+            <property name="reasonable" value="true"/>
+        </plugin>
+    </plugins>
+
+
+
+    <!--注册映射文件,注意此时接口名和xml文件名要一致，且在同一个包下-->
+    <mappers>
+        <package name="jmu.dpj.bmms.mapper"/>
+    </mappers>
+
+
+</configuration>

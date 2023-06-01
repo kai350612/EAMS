@@ -1,0 +1,6 @@
+jmu\dpj\bmms\service\UserService.class
+jmu\dpj\bmms\mapper\UserMapper.class
+jmu\dpj\bmms\pojo\Student.class
+jmu\dpj\bmms\pojo\User.class
+jmu\dpj\bmms\service\impl\UserServiceImpl.class
+jmu\dpj\bmms\controller\UserController.class
